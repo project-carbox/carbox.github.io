@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carbox — Structural Identification of Anomalous Carboxyl Protonation & LBHBs</title>
+    <meta name="description" content="Carbox is an open scientific platform and crystallographic validation framework for identifying anomalous carboxyl protonation states, low-barrier hydrogen bonds (LBHBs), and dielectric shielding in macromolecular crystals.">
+    <meta name="author" content="Suleiman M Hajizadeh, Garib N Murshudov">
+    
+    <!-- Open Graph / Social Meta -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Carbox — Macromolecular Crystallography & LBHB Validation">
+    <meta property="og:description" content="Computational framework developed by Suleiman M Hajizadeh and Prof. Garib N Murshudov for high-throughput detection and validation of carboxyl-carboxyl interactions.">
+    <meta property="og:image" content="assets/og-image.png">
+    <meta property="og:url" content="https://project-carbox.github.io/">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/carbox_favicon.ico">
+    <link rel="icon" type="image/png" href="assets/carbox_favicon.png">
+
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- 3Dmol.js for Lightweight In-Browser 3D Molecular Graphics -->
+    <script src="https://3Dmol.org/build/3Dmol-min.js"></script>
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Top Navigation -->
+    <header class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="brand-group">
+                <img src="assets/carbox_logo.svg" alt="Carbox Logo" class="brand-logo" onerror="this.src='assets/carbox_logo.png'">
+                <div class="brand-text">
+                    <span class="brand-name">CARBOX</span>
+                    <span class="brand-tag">CRYSTALLOGRAPHIC VALIDATION</span>
+                </div>
+            </a>
+
+            <nav class="nav-links">
+                <a href="#vision" class="nav-link"><i class="fa-solid fa-compass"></i> Mission</a>
+                <a href="#methodology" class="nav-link"><i class="fa-solid fa-layer-group"></i> 4-Stage Protocol</a>
+                <a href="#viewer" class="nav-link"><i class="fa-solid fa-cube"></i> 3D Case Studies</a>
+                <a href="#benchmarks" class="nav-link"><i class="fa-solid fa-table-list"></i> Benchmarks</a>
+                <a href="#citation" class="nav-link"><i class="fa-solid fa-book-bookmark"></i> Citation</a>
+            </nav>
+
+            <div class="nav-actions">
+                <a href="https://colab.research.google.com/github/project-carbox/carbox/blob/main/notebooks/Carbox_Garib_Murshudov_4Stages_Colab.ipynb" target="_blank" rel="noopener" class="btn btn-colab">
+                    <i class="fa-solid fa-play"></i> Run Colab
+                </a>
+                <a href="https://github.com/project-carbox/carbox" target="_blank" rel="noopener" class="btn btn-github">
+                    <i class="fa-brands fa-github"></i> GitHub
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <main>
+        <section class="hero-section">
+            <div class="hero-glow"></div>
+            <div class="container hero-content">
+                <div class="hero-badge">
+                    <span class="badge-dot"></span>
+                    <span>Cambridge MRC-LMB &amp; IMB Research Framework • v0.4.5</span>
+                </div>
+
+                <h1 class="hero-title">
+                    Structural Identification of Anomalous <span class="gradient-text">Carboxyl Protonation</span> &amp; Low-Barrier Hydrogen Bonds
+                </h1>
+
+                <p class="hero-description">
+                    A rigorous crystallographic validation platform engineered to separate genuine shared-proton Low-Barrier Hydrogen Bonds (LBHBs) from refinement artifacts, thermal disorder, and unmodeled cation complexes across the Protein Data Bank (PDB).
+                </p>
+
+                <!-- Authors Bar -->
+                <div class="authors-card">
+                    <div class="author-item">
+                        <div class="author-avatar"><i class="fa-solid fa-user-graduate"></i></div>
+                        <div class="author-details">
+                            <span class="author-name">Suleiman M Hajizadeh</span>
+                            <span class="author-affil">Institute of Molecular Biology, Ministry of Science and Education of Azerbaijan • Western Caspian University</span>
+                        </div>
+                    </div>
+                    <div class="author-divider"></div>
+                    <div class="author-item">
+                        <div class="author-avatar mrc"><i class="fa-solid fa-flask-vial"></i></div>
+                        <div class="author-details">
+                            <span class="author-name">Garib N Murshudov</span>
+                            <span class="author-affil">MRC Laboratory of Molecular Biology (LMB), Cambridge Biomedical Campus, United Kingdom</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Live Metrics Grid -->
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <div class="metric-num">7,230</div>
+                        <div class="metric-label">High-Res PDB Structures Screened</div>
+                        <div class="metric-sub">&le; 1.20 Å Resolution Limit</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-num">6,759</div>
+                        <div class="metric-label">Total Carboxyl Pairs Mined</div>
+                        <div class="metric-sub">d(O&middot;&middot;&middot;O) &le; 3.20 Å Contacts</div>
+                    </div>
+                    <div class="metric-card highlight">
+                        <div class="metric-num">&le; 2.55 Å</div>
+                        <div class="metric-label">Ultra-Short LBHB Boundary</div>
+                        <div class="metric-sub">Shared Proton &bull; Strong pKa Shift</div>
+                    </div>
+                    <div class="metric-card success">
+                        <div class="metric-num">67</div>
+                        <div class="metric-label">Golden Validated Benchmarks</div>
+                        <div class="metric-sub">Passed All 4 Murshudov Tiers</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Project Mission / Vision -->
+        <section id="vision" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">SCIENTIFIC VISION</span>
+                    <h2 class="section-title">The Fundamental Crystallographic Challenge</h2>
+                    <p class="section-subtitle">
+                        Why atomic distance alone is deceptive without rigorous electron density and thermal displacement validation.
+                    </p>
+                </div>
+
+                <div class="vision-grid">
+                    <div class="vision-card error-card">
+                        <div class="card-icon"><i class="fa-solid fa-triangle-exclamation"></i></div>
+                        <h3>The False Positive Hazard</h3>
+                        <p>
+                            In standard crystallographic refinement, side-chain carboxylates (Asp, Glu) in highly flexible loops can be artificially fitted into ambiguous, low-density features. A measured distance of <strong>d &le; 2.50 Å</strong> often represents a modeling artifact or unmodeled metal bridge rather than a true hydrogen bond.
+                        </p>
+                        <blockquote class="quote-box">
+                            "If there is no electron density for atoms, they are mismodeled. If atoms are mismodeled, the distance between them is completely meaningless."
+                            <cite>— Prof. Garib Murshudov (MRC-LMB Cambridge)</cite>
+                        </blockquote>
+                    </div>
+
+                    <div class="vision-card solution-card">
+                        <div class="card-icon"><i class="fa-solid fa-shield-check"></i></div>
+                        <h3>The Carbox 4-Stage Precision Solution</h3>
+                        <p>
+                            Rather than blindly accepting PDB coordinates, Carbox applies a multi-tier decision tree combining <strong>Tukey Interquartile Range (IQR)</strong> outlier detection on isotropic B-factors, <strong>Fisher z-transformed</strong> real-space correlation coefficients (RSCC), empirical <strong>PROPKA pKa shift</strong> evaluation, and 70-metal coordination screening.
+                        </p>
+                        <ul class="check-list">
+                            <li><i class="fa-solid fa-check"></i> Eliminates thermal disorder noise (&alpha; = 1.5 &amp; 3.0 Tukey whiskers)</li>
+                            <li><i class="fa-solid fa-check"></i> Discards unmodeled Zn²⁺, Mg²⁺, Ca²⁺ deprotonated salts</li>
+                            <li><i class="fa-solid fa-check"></i> Confirms genuine protonation shifts (&Delta;pKa &ge; +2.0)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- The 4-Stage Methodology -->
+        <section id="methodology" class="section bg-alt">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">METHODOLOGY</span>
+                    <h2 class="section-title">Prof. Garib Murshudov's 4-Stage Protocol</h2>
+                    <p class="section-subtitle">
+                        From raw high-resolution diffraction coordinates to verified biochemical protonation states.
+                    </p>
+                </div>
+
+                <!-- Protocol Tabs / Stepper -->
+                <div class="stepper-nav">
+                    <button class="step-btn active" data-step="1">
+                        <span class="step-num">1</span>
+                        <span class="step-text">Geometric Mining</span>
+                    </button>
+                    <button class="step-btn" data-step="2">
+                        <span class="step-num">2</span>
+                        <span class="step-text">B-Factor &amp; RSCC</span>
+                    </button>
+                    <button class="step-btn" data-step="3">
+                        <span class="step-num">3</span>
+                        <span class="step-text">pKa Evaluation</span>
+                    </button>
+                    <button class="step-btn" data-step="4">
+                        <span class="step-num">4</span>
+                        <span class="step-text">10–20 Benchmarks</span>
+                    </button>
+                </div>
+
+                <div class="step-content-box">
+                    <!-- Step 1 -->
+                    <div class="step-pane active" id="pane-1">
+                        <div class="pane-grid">
+                            <div class="pane-text">
+                                <span class="badge">STAGE 1</span>
+                                <h3>Euclidean Contact Mining &amp; Solvent Burial</h3>
+                                <p>
+                                    All atomic-resolution macromolecular crystal structures (&le; 1.20 Å) are indexed. The algorithm extracts side-chain carboxyl oxygens (Asp OD1/OD2, Glu OE1/OE2) and computes all inter-residue Euclidean pairwise distances:
+                                </p>
+                                <div class="math-box">
+                                    $$d(O_i, O_j) = \sqrt{(x_i - x_j)^2 + (y_i - y_j)^2 + (z_i - z_j)^2} \le 3.20\,\text{Å}$$
+                                </div>
+                                <p>
+                                    The centroid of each pair is computed and cross-referenced with all crystallographic water molecules. Pairs with <strong>d(water) &gt; 3.0 Å</strong> are tagged as <em>Buried</em> (&epsilon; &approx; 2–4, high dielectric penalty favoring protonation).
+                                </p>
+                            </div>
+                            <div class="pane-card">
+                                <h4>Stage 1 Screening Thresholds</h4>
+                                <ul class="spec-list">
+                                    <li><span>Crystallographic Resolution</span><strong>&le; 1.20 Å (Tier 1)</strong></li>
+                                    <li><span>Carboxyl Contact Cutoff</span><strong>d &le; 3.20 Å</strong></li>
+                                    <li><span>Ultra-Short LBHB Cutoff</span><strong>d &le; 2.55 Å</strong></li>
+                                    <li><span>Solvent Exclusion Cutoff</span><strong>d(water) &gt; 3.00 Å</strong></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="step-pane" id="pane-2">
+                        <div class="pane-grid">
+                            <div class="pane-text">
+                                <span class="badge">STAGE 2</span>
+                                <h3>Crystallographic Precision &amp; Noise Pruning</h3>
+                                <p>
+                                    As instructed by Prof. Garib Murshudov, pairs are subjected to a rigorous dual-prong validation protocol:
+                                </p>
+                                <div class="formula-block">
+                                    <h5>A. Non-Parametric Tukey IQR Filter</h5>
+                                    <div class="math-box">
+                                        $$B_{\text{cutoff}} = Q_3 + \alpha \cdot \text{IQR} \quad (\text{IQR} = Q_3 - Q_1, \; \alpha \in \{1.5, 3.0\})$$
+                                    </div>
+                                    <p>If either oxygen has $B > B_{\text{cutoff}}$ or $B_z = (B - \mu_B)/\sigma_B > 3.0$, the contact is classified as thermal disorder noise and rejected.</p>
+                                </div>
+                                <div class="formula-block">
+                                    <h5>B. Real-Space Correlation with Fisher Z-Transform</h5>
+                                    <div class="math-box">
+                                        $$z = \frac{1}{2} \ln \left(\frac{1 + \text{CC}'}{1 - \text{CC}'}\right), \quad \text{CC}' = \min(0.9999, \text{CC})$$
+                                    </div>
+                                    <p>Atoms with standardized $Z_{\text{CC}} < -3.0$ exhibit poor density agreement and are pruned.</p>
+                                </div>
+                            </div>
+                            <div class="pane-card">
+                                <h4>Stage 2 Filter Results</h4>
+                                <div class="stat-badge-group">
+                                    <div class="s-badge red"><span>Pruned Disordered Loops:</span><strong>412 sites</strong></div>
+                                    <div class="s-badge orange"><span>Pruned Steric Clashes:</span><strong>287 sites</strong></div>
+                                    <div class="s-badge purple"><span>Pruned Metal Cations:</span><strong>49 sites</strong></div>
+                                    <div class="s-badge green"><span>Validated Signal:</span><strong>67 sites</strong></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="step-pane" id="pane-3">
+                        <div class="pane-grid">
+                            <div class="pane-text">
+                                <span class="badge">STAGE 3</span>
+                                <h3>Biochemical Protonation Modeling (PROPKA)</h3>
+                                <p>
+                                    Isolated carboxylates in neutral water have standard pKa values of <strong>3.8 (Asp)</strong> and <strong>4.5 (Glu)</strong>. Bringing two negative carboxylates to within 2.50 Å requires a tremendous electrostatic penalty that is only stabilized by a shared bridging proton.
+                                </p>
+                                <div class="math-box">
+                                    $$\Delta \text{p}K_a = \text{p}K_a^{\text{local}} - \text{p}K_a^{\text{model}} \ge +2.0 \quad \Longrightarrow \quad \text{p}K_a \ge 6.0\text{--}8.0$$
+                                </div>
+                                <p>
+                                    Using PROPKA 3 integration, Carbox verifies that candidate LBHB carboxyl pairs exhibit dramatic upward pKa shifts, confirming that one residue functions as a neutral hydrogen donor at physiological pH.
+                                </p>
+                            </div>
+                            <div class="pane-card">
+                                <h4>Protonation Landscape</h4>
+                                <ul class="spec-list">
+                                    <li><span>Aqueous Asp pKa</span><strong>3.80</strong></li>
+                                    <li><span>Aqueous Glu pKa</span><strong>4.50</strong></li>
+                                    <li><span>Buried LBHB Asp pKa</span><strong>6.50 – 8.20</strong></li>
+                                    <li><span>Protonation Confidence</span><strong>Strong (&gt;95%)</strong></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="step-pane" id="pane-4">
+                        <div class="pane-grid">
+                            <div class="pane-text">
+                                <span class="badge">STAGE 4</span>
+                                <h3>10–20 Golden Benchmarks &amp; Literature Validation</h3>
+                                <p>
+                                    Before global batch scaling, the methodology is verified manually against 10–20 universally celebrated, experimentally proven catalytic and structural LBHBs:
+                                </p>
+                                <ul class="check-list">
+                                    <li><strong>1KZK:</strong> HIV-1 Retroviral Protease catalytic dyad (Asp25···Asp25')</li>
+                                    <li><strong>1OEW:</strong> Endothiapepsin sub-angstrom aspartic dyad (0.90 Å)</li>
+                                    <li><strong>1FKN:</strong> BACE-1 Alzheimer beta-secretase dyad (Asp32···Asp228)</li>
+                                    <li><strong>2DSX:</strong> Rubredoxin sub-atomic buried core (0.68 Å, Asp35···Asp47)</li>
+                                    <li><strong>4ZM7:</strong> Aminopeptidase proton-relay network (0.70 Å, Asp149···Glu162)</li>
+                                </ul>
+                            </div>
+                            <div class="pane-card">
+                                <h4>Publication Rigor</h4>
+                                <p class="text-sm">
+                                    Every identified golden benchmark is verified against primary crystallographic papers (Science, Nature, Structure) and registered with full DOI citations.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive 3D Case Studies -->
+        <section id="viewer" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">INTERACTIVE 3D EXPLORATION</span>
+                    <h2 class="section-title">Live Benchmark Molecular Showcase</h2>
+                    <p class="section-subtitle">
+                        Inspect real atomic structures, side-chain orientations, and LBHB distance vectors rendered directly via WebGL.
+                    </p>
+                </div>
+
+                <div class="viewer-wrapper">
+                    <div class="viewer-controls">
+                        <div class="control-label"><i class="fa-solid fa-flask"></i> Select Case Study:</div>
+                        <div class="preset-buttons">
+                            <button class="preset-btn active" data-pdb="1kzk" data-pair="A:ASP25-B:ASP25" data-dist="2.45" data-title="HIV-1 Protease Catalytic Dyad">
+                                <span class="p-id">1KZK</span> (1.09 Å)
+                            </button>
+                            <button class="preset-btn" data-pdb="1oew" data-pair="A:ASP35-A:ASP218" data-dist="2.52" data-title="Endothiapepsin Acid Protease">
+                                <span class="p-id">1OEW</span> (0.90 Å)
+                            </button>
+                            <button class="preset-btn" data-pdb="2dsx" data-pair="A:ASP35-A:ASP47" data-dist="2.41" data-title="Rubredoxin Buried Core">
+                                <span class="p-id">2DSX</span> (0.68 Å)
+                            </button>
+                            <button class="preset-btn" data-pdb="1fkn" data-pair="A:ASP32-A:ASP228" data-dist="2.58" data-title="BACE-1 Alzheimer Protease">
+                                <span class="p-id">1FKN</span> (1.90 Å)
+                            </button>
+                        </div>
+
+                        <div class="viewer-info-card">
+                            <h4 id="v-title">HIV-1 Protease Catalytic Dyad</h4>
+                            <div class="v-meta">
+                                <div><span class="v-label">PDB Accession:</span> <strong id="v-pdb">1KZK</strong></div>
+                                <div><span class="v-label">Crystallographic Resolution:</span> <strong id="v-res">1.09 Å</strong></div>
+                                <div><span class="v-label">Carboxyl Dyad:</span> <strong id="v-pair">Asp25 &middot;&middot;&middot; Asp25'</strong></div>
+                                <div><span class="v-label">Measured Distance:</span> <strong id="v-dist" class="highlight-text">2.45 Å (Ultra-Short LBHB)</strong></div>
+                                <div><span class="v-label">Solvent Environment:</span> <strong id="v-env">Buried (d_water &gt; 3.0 Å)</strong></div>
+                                <div><span class="v-label">Quality Status:</span> <strong class="status-pill green">Golden Reliable (Murshudov Tier A)</strong></div>
+                            </div>
+                            <p id="v-desc" class="v-description">
+                                Symmetrical homodimer interface where two invariant Asp25 residues share a central proton with elevated pKa (&gt;6.5) to perform general acid-base catalysis of viral polyprotein cleavage.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="viewer-container">
+                        <div id="mol-viewport" class="mol-viewport"></div>
+                        <div class="viewer-overlay">
+                            <span><i class="fa-solid fa-arrows-up-down-left-right"></i> Left-Click: Rotate</span>
+                            <span><i class="fa-solid fa-magnifying-glass-plus"></i> Scroll: Zoom</span>
+                            <span><i class="fa-solid fa-hand"></i> Right-Click: Pan</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Golden Benchmarks Table -->
+        <section id="benchmarks" class="section bg-alt">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">VALIDATED DATASET</span>
+                    <h2 class="section-title">The 10–20 Golden Benchmark Database</h2>
+                    <p class="section-subtitle">
+                        Filter and inspect curated high-confidence LBHB sites verified against crystallographic quality metrics.
+                    </p>
+                </div>
+
+                <div class="table-card">
+                    <div class="table-toolbar">
+                        <div class="search-box">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                            <input type="text" id="table-search" placeholder="Search by PDB, residue, or enzyme...">
+                        </div>
+                        <div class="filter-pills">
+                            <button class="pill-btn active" data-filter="all">All Benchmarks</button>
+                            <button class="pill-btn" data-filter="lbhb">LBHB (&le; 2.55 Å)</button>
+                            <button class="pill-btn" data-filter="buried">Buried Core</button>
+                        </div>
+                    </div>
+
+                    <div class="table-responsive">
+                        <table class="data-table" id="benchmarks-table">
+                            <thead>
+                                <tr>
+                                    <th>PDB</th>
+                                    <th>Resolution</th>
+                                    <th>Residue Pair</th>
+                                    <th>d(O&middot;&middot;&middot;O)</th>
+                                    <th>d(Water)</th>
+                                    <th>Max B-factor</th>
+                                    <th>Tukey Limit</th>
+                                    <th>Verdict / Role</th>
+                                </tr>
+                            </thead>
+                            <tbody id="benchmarks-tbody">
+                                <!-- Populated dynamically by app.js -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Citation & Open Science Section -->
+        <section id="citation" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">OPEN SCIENCE &amp; CITATION</span>
+                    <h2 class="section-title">Cite the Carbox Platform</h2>
+                    <p class="section-subtitle">
+                        Carbox is free and open-source scientific software. Please cite our research paper when utilizing these benchmarks or algorithms.
+                    </p>
+                </div>
+
+                <div class="citation-grid">
+                    <div class="citation-card">
+                        <div class="citation-header">
+                            <span>BibTeX Reference</span>
+                            <button class="btn-copy" id="btn-copy-bibtex"><i class="fa-regular fa-copy"></i> Copy BibTeX</button>
+                        </div>
+                        <pre class="code-block" id="bibtex-code"><code>@article{HajizadehMurshudov2026,
+  author    = {Hajizadeh, Suleiman M and Murshudov, Garib N},
+  title     = {Structural Identification of Anomalous Carboxyl Protonation States,
+               Low-Barrier Hydrogen Bonds, and Microenvironment Dielectric Shielding
+               in High-Resolution Protein Crystal Structures},
+  journal   = {Carbox &amp; CarboxMol Macromolecular Crystallography Suite},
+  year      = {2026},
+  volume    = {0},
+  number    = {4},
+  pages     = {1--35},
+  publisher = {Project Carbox},
+  url       = {https://project-carbox.github.io/}
+}</code></pre>
+                    </div>
+
+                    <div class="citation-links-card">
+                        <h3>Research Artifacts &amp; Code</h3>
+                        <p>Access reproducible pipelines, Jupyter/Colab notebooks, and pre-compiled benchmark datasets:</p>
+                        
+                        <div class="resource-links">
+                            <a href="https://colab.research.google.com/github/project-carbox/carbox/blob/main/notebooks/Carbox_Garib_Murshudov_4Stages_Colab.ipynb" target="_blank" rel="noopener" class="r-link">
+                                <i class="fa-solid fa-play"></i>
+                                <div>
+                                    <strong>Google Colab Notebook</strong>
+                                    <span>Interactive execution of Murshudov 4-stage pipeline</span>
+                                </div>
+                            </a>
+                            <a href="https://github.com/project-carbox/carbox" target="_blank" rel="noopener" class="r-link">
+                                <i class="fa-brands fa-github"></i>
+                                <div>
+                                    <strong>Core Python Package</strong>
+                                    <span>github.com/project-carbox/carbox (CLI, filters, REST API)</span>
+                                </div>
+                            </a>
+                            <a href="https://carboxmol.github.io" target="_blank" rel="noopener" class="r-link">
+                                <i class="fa-solid fa-cube"></i>
+                                <div>
+                                    <strong>CarboxMol 3D Workbench</strong>
+                                    <span>Desktop &amp; WebGL electron density streaming suite</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-left">
+                <img src="assets/carbox_logo.svg" alt="Carbox Logo" class="footer-logo" onerror="this.src='assets/carbox_logo.png'">
+                <div>
+                    <div class="footer-brand">Carbox Platform &bull; Open Science</div>
+                    <div class="footer-copy">All rights reserved &copy; 2026 Suleiman M Hajizadeh &amp; Garib N Murshudov.</div>
+                </div>
+            </div>
+
+            <div class="footer-right">
+                <span class="affil-tag">Baku, Azerbaijan &bull; Cambridge, United Kingdom</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- App JavaScript -->
+    <script src="app.js"></script>
+</body>
+</html>
