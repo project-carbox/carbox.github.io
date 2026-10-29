@@ -9,12 +9,21 @@
 </p>
 
 <p align="center">
-  <a href="https://project-carbox.github.io/"><img src="https://img.shields.io/badge/Live_Portal-project--carbox.github.io-00e5ff?style=flat-square&logo=githubpages" alt="Live Site" /></a>
+  <a href="https://project-carbox.github.io/carbox.github.io/"><img src="https://img.shields.io/badge/Live_Portal-project--carbox.github.io-00e5ff?style=flat-square&logo=githubpages" alt="Live Site" /></a>
   <a href="https://colab.research.google.com/github/project-carbox/carbox/blob/main/notebooks/Carbox_Garib_Murshudov_4Stages_Colab.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab" /></a>
-  <a href="https://github.com/project-carbox/carbox"><img src="https://img.shields.io/badge/Core_Engine-project--carbox/carbox-10b981?style=flat-square&logo=github" alt="Core Engine" /></a>
-  <a href="https://github.com/carboxmol"><img src="https://img.shields.io/badge/Desktop_Suite-CarboxMol-7c3aed?style=flat-square" alt="CarboxMol" /></a>
-  <img src="https://img.shields.io/badge/License-MIT-blue?style=flat-square" alt="License" />
+  <a href="mailto:suleyman.hacizade1@gmail.com?subject=Private%20Data%20%26%20Repository%20Access%20Request%20-%20Project%20Carbox"><img src="https://img.shields.io/badge/Private_Data_Access-Request_via_Email-dc2626?style=flat-square&logo=gmail" alt="Request Access" /></a>
+  <a href="mailto:suleyman.hacizade1@gmail.com"><img src="https://img.shields.io/badge/Contact-suleyman.hacizade1%40gmail.com-10b981?style=flat-square&logo=gmail" alt="Contact" /></a>
+  <a href="https://github.com/project-carbox/carbox"><img src="https://img.shields.io/badge/Core_Engine-project--carbox/carbox-7c3aed?style=flat-square&logo=github" alt="Core Engine" /></a>
 </p>
+
+---
+
+> [!IMPORTANT]
+> ### 🔒 Private Data & Repository Access Notice (Məxfi Məlumatlar və Giriş İcazəsi)
+> **English:** All raw crystallographic datasets, full 7,230-PDB screening matrices, electron density correlation profiles ($2mF_o - DF_c$), backend computational pipelines, and manuscript drafts housed in **`project-carbox/carbox`** are **strictly private**. If you are an academic researcher, peer reviewer, or institutional collaborator wishing to access the private repository, please contact **Suleiman M Hajizadeh** via email:  
+> 📧 **[suleyman.hacizade1@gmail.com](mailto:suleyman.hacizade1@gmail.com?subject=Access%20Request%20-%20Project%20Carbox%20Private%20Data%20%26%20Repository)**
+>
+> **Azərbaycanca:** Bu tədqiqat platformasındakı bütün xam kristalloqrafik məlumat bazaları, 7,230 PDB strukturu üzrə tam skrininq matrisaları, elektron sıxlığı xəritələri və əsas hesablama boru xətləri (`carbox`) **məxfidir (private)**. Məlumatlara və ya qapalı tədqiqat repozitoriyasına tam giriş əldə etmək üçün elektron poçt vasitəsilə müraciət edə bilərsiniz.
 
 ---
 

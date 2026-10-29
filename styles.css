@@ -1141,6 +1141,195 @@ body {
     color: var(--text-muted);
 }
 
+.footer-email {
+    font-size: 0.8rem;
+    color: var(--accent-cyan);
+    margin-top: 4px;
+}
+
+.footer-email a {
+    color: var(--accent-cyan);
+    text-decoration: underline;
+}
+
+/* Access Notice Card & Badges */
+.btn-access-nav {
+    background: rgba(239, 68, 68, 0.15);
+    border: 1px solid rgba(239, 68, 68, 0.4);
+    color: #fca5a5;
+    padding: 8px 14px;
+    border-radius: var(--radius-sm);
+    font-size: 0.82rem;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s ease;
+}
+
+.btn-access-nav:hover {
+    background: rgba(239, 68, 68, 0.25);
+    border-color: #ef4444;
+    color: #ffffff;
+    box-shadow: 0 0 15px rgba(239, 68, 68, 0.3);
+}
+
+.access-notice-card {
+    margin-top: 36px;
+    background: linear-gradient(135deg, rgba(239, 68, 68, 0.08) 0%, rgba(15, 23, 42, 0.8) 100%);
+    border: 1px solid rgba(239, 68, 68, 0.35);
+    border-radius: var(--radius-lg);
+    padding: 28px 32px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    position: relative;
+    overflow: hidden;
+}
+
+.access-notice-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: #ef4444;
+}
+
+.notice-badge-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+}
+
+.notice-tag {
+    font-family: var(--font-mono);
+    font-size: 0.76rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: #fca5a5;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.notice-lang-tag {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    background: rgba(239, 68, 68, 0.2);
+    color: #fee2e2;
+    padding: 3px 10px;
+    border-radius: 999px;
+    border: 1px solid rgba(239, 68, 68, 0.4);
+}
+
+.notice-body {
+    display: flex;
+    gap: 22px;
+    align-items: flex-start;
+}
+
+.notice-icon-box {
+    width: 48px;
+    height: 48px;
+    border-radius: var(--radius-md);
+    background: rgba(239, 68, 68, 0.15);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    color: #ef4444;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.notice-text h3 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+.notice-en {
+    font-size: 0.9rem;
+    color: #cbd5e1;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+.notice-az {
+    font-size: 0.88rem;
+    color: #94a3b8;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.notice-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.btn-access-cta {
+    background: #ef4444;
+    color: #ffffff;
+    padding: 10px 22px;
+    border-radius: var(--radius-sm);
+    font-size: 0.88rem;
+    font-weight: 700;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.25s ease;
+    box-shadow: 0 4px 14px rgba(239, 68, 68, 0.4);
+}
+
+.btn-access-cta:hover {
+    background: #dc2626;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(239, 68, 68, 0.6);
+}
+
+.notice-lead-contact {
+    font-size: 0.85rem;
+    color: #cbd5e1;
+}
+
+.notice-lead-contact strong {
+    color: #ffffff;
+}
+
+.badge-lock {
+    background: rgba(239, 68, 68, 0.15);
+    color: #fca5a5;
+    padding: 2px 7px;
+    border-radius: 4px;
+    font-size: 0.68rem;
+    font-weight: 700;
+    margin-left: 8px;
+    border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.r-link-highlight {
+    border-color: rgba(239, 68, 68, 0.4) !important;
+    background: rgba(239, 68, 68, 0.06) !important;
+}
+
+.r-link-highlight i {
+    color: #ef4444 !important;
+}
+
+.r-link-highlight:hover {
+    border-color: #ef4444 !important;
+    box-shadow: 0 4px 15px rgba(239, 68, 68, 0.25);
+}
+
 .affil-tag {
     font-size: 0.8rem;
     color: var(--text-muted);
